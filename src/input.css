@@ -3,115 +3,350 @@
 @tailwind utilities;
 
 .container{
-    @apply max-w-[90rem] p-6 w-full mx-auto
+    @apply max-w-[95rem] p-6 w-full mx-auto
 }
+
 @layer components{
-    h1{
-        @apply 
-        text-lime-700
-        text-6xl
+    /* HEADER */
+    .header__wrapper {
+        @apply py-4 flex items-center bg-center justify-between lg:py-1;
+      }
+    
+      nav {
+        @apply absolute w-full h-full bg-light top-[75px] left-[-100%] z-10 border-t-[1px] border-gray-200 transition-all duration-[0.5s] lg:static lg:border-none;
+      }
+      .open {
+        @apply w-full left-0;
+      }
+    
+      .nav-links {
+        @apply flex uppercase flex-col text-center lg:flex-row lg:justify-end lg:text-[14px];
+      }
+    
+      .nav-links ul li {
+        @apply border-b-[1px] border-gray-300;
+      }
+    
+      .nav-links li {
+        @apply lg:relative;
+      }
+    
+      .nav-links li::after {
+        @apply lg:bottom-0
+        lg:content-['']
+        lg:block
+        lg:h-[5px]
+        lg:left-[50%]
+        lg:absolute
+        lg:bg-[#6a103f]
+        lg:[transition:width_0.3s_ease_0s,_left_0.3s_ease_0s]
+        lg:w-0;
+      }
+    
+      .nav-links li:hover::after {
+        @apply w-full left-0;
+      }
+    
+      .nav-links li a {
+        @apply relative inline-block h-[60px] leading-[60px] w-full text-primary hover:bg-primary hover:text-light transition-all duration-300 lg:hover:bg-transparent lg:hover:text-primary lg:px-5;
+      }
+    
+      /* SUB MENU */
+      .dropdown-parent {
+        @apply lg:relative;
+      }
+    
+      .nav-links-dropdown {
+        @apply hidden relative p-5 left-0 p-0 border-t-[1px] bg-[#480f2d] lg:bg-light lg:absolute lg:leading-[30px];
+      }
+    
+      .nav-links-dropdown li {
+        @apply border-none hover:bg-[#6a103f] lg:hover:bg-transparent lg:w-[300px];
+      }
+    
+      .nav-links-dropdown li::after {
+        @apply lg:h-[2px] lg:bottom-2;
+      }
+    
+      .nav-links-dropdown li a {
+        @apply h-auto leading-[1.6] text-light !p-0 lg:text-left lg:text-primary;
+      }
+    
+      .nav-links-dropdown.active {
+        @apply block;
+      }
+      a.active {
+        @apply bg-primary text-light;
+      }
+    
+      .burger__menu span {
+        @apply block absolute h-[8px] w-full bg-primary rounded-lg opacity-100 left-0;
+      }
+    
+      .burger__menu span:nth-child(1) {
+        @apply opacity-100 top-0 transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(2) {
+        @apply top-[15px] transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(3) {
+        @apply top-[15px] transition-all duration-300;
+      }
+    
+      .burger__menu span:nth-child(4) {
+        @apply opacity-100 top-[30px] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(1) {
+        @apply top-[15px] w-0 left-[50%] opacity-0 transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(2) {
+        @apply rotate-[45deg] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(3) {
+        @apply rotate-[-45deg] transition-all duration-300;
+      }
+    
+      .burger__menu.open span:nth-child(4) {
+        @apply top-[15px] w-0 left-[50%] opacity-0 transition-all duration-300;
+      }
+    
+      .services__card {
+        @apply my-20 lg:my-0 lg:mb-20;
+      }
+    
+      .services__card ul {
+        @apply list-inside;
+      }
+    
+      .services__card img {
+        @apply w-[50px] h-[50px] object-contain;
+      }
+    /* BANNER */
+    .banner{
+        @apply py-8
     }
+    .banner .bg{
+        @apply
+        bg-Bgwave 
+        bg-no-repeat
+        bg-right
+    }
+    /* ABOUT */
+    .about .about__wrapper{
+        @apply mb-[1.5rem]
+    }
+    /* LIST what we offer */
+    .service{
+        @apply
+        py-[10vh]
+        px-[0]
+        bg-Bgservices
+        bg-cover
+        bg-center
+        bg-no-repeat
+    }
+    .service .service__wrapper .service__title img{
+        @apply block
+        w-[60%]
+        m-auto
+    }
+    .service .service__wrapper .service__list .service__title ul{
+        @apply
+        text-lg
+    }
+    /* EVENTS */
+    .events .events__wrapper .event__card{
+        @apply
+        pl-1
+        pr-1
+        pb-10
+        border 
+        border-light
+        shadow-2xl 
+        gap-10
+        object-fill
+        text-center
+    }
+    .events .events__wrapper .event__card{
+        @apply
+        overflow-clip
+    }
+    .events .events__wrapper .event__card img{
+        @apply
+        object-fill
+        hover:scale-110
+        transition-all
+    }
+    .events .events__wrapper .event__card img{
+        @apply
+        w-[100%]
+        h-auto
+        bg-cover
+        bg-no-repeat
+        bg-center
+    }
+    .events .events__wrapper .event__card h4{
+        @apply
+        mb-[1rem]
+    }
+    .events .events__wrapper .event__card p{
+        @apply
+        mb-[5rem]
+    }
+    .events .events__wrapper .event__card .eventcard__img{
+        @apply
+        object-cover
+    }
+    .events .events__wrapper .event__card .eventcard__img img{
+        @apply
+        mb-10
+    }
+    .events .events__wrapper .event__card h4{
+        @apply
+        font-bold
+        text-2xl
+    }
+
+    /* SLIDER */
+    .testimonial__wrapper .tns-outer {
+        @apply relative;
+      }
+    
+      .testimonial__wrapper .tns-nav {
+        @apply z-[999] absolute bottom-[1rem]
+      left-[50%]
+      -translate-x-1/2
+      -translate-y-1/2;
+      }
+    
+      .testimonial__wrapper .tns-nav button {
+        @apply mx-[0.2rem]
+      w-[15px]
+      h-[15px]
+      rounded-full
+      border-none
+      bg-primary;
+      }
+    
+      .testimonial__wrapper button.tns-nav-active {
+        @apply bg-[#be2a76];
+      }
+    
+    /* FOOTER */
+
+    /* ABOUT US */
+    /* MISSION VISSION */
+    .vission span{
+        @apply
+        font-bold
+    }
+    .vission .vission__wrapper .vission__card{
+        @apply
+        grid
+        place-items-center
+        md:place-items-start
+    }
+    .vission .vission__wrapper .vission__card h4{
+        @apply
+        font-bold
+        text-2xl
+        mb-5
+    }
+    .vission .vission__wrapper .vission__card  .vission__img{
+        @apply
+        w-[100%]
+        h-[100%]
+        bg-cover
+        bg-no-repeat
+        bg-center
+        object-cover
+    }
+    /* CTA */
+    .cta{
+        @apply bg-[radial-gradient(circle_farthest-side_at_center_bottom,#e81a86,#6a103f_125%)];
+    }
+    /* partners */
+    /* .partners .partners__wrapper .partner__col ul{
+        @apply
+        grid
+        grid-rows-6
+        place-items-center
+        items-center
+    } */
+    .partners .partners__wrapper .partner__col ul{
+        @apply
+        gap-[5rem]
+        mb-[5rem]
+        object-fill
+    }
+
+   
 }
 @layer utilities{
+    .bck-top {
+        position: fixed;
+        bottom: 30px;
+        right: 200px;
+        z-index: 9999;
+        display: none;
+        text-align: center;
+        padding: 5px 15px;
+        text-decoration: none;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        border: 1px solid #ddd;
+    }
+    .bck-top svg {
+        fill: #fff;
+        width: 3rem;
+        height: 3rem;
+    }
     .btn{
-        @apply inline-block
-        py-[.5rem]
-        px-[1rem]
+        @apply 
+        inline-block
+        py-[1rem]
+        px-[1.5rem]
         rounded-full
         border-transparent
         border-[1px]
-        text-sm
+        rounded-full
+        text-lg
+        font-bold
         font-medium hover:scale-[0.9]
         transition-all
     }
     .btn.bg--light{
         @apply bg-light 
-        text-dark 
-        border-dark 
+        text-accent
+        border-accent 
         border-[1px]
+        hover:border-opacity-0
         hover:bg-zinc-200
         transition-all;
     }
     .btn.bg--dark{
         @apply bg-accent 
-        text-dark
+        text-light
+        border-[1px]
+        hover:text-accent
+        border-accent
         hover:bg-light
         transition-all
     }
-    .btn.bg--transparent{
+    .btn.bg--light-cta{
         @apply bg-transparent
         text-light
         border-light
         border-[1px]
-        hover:text-dark
-        transition-all
-    }
-    .btn.bg--secondary{
-        @apply bg-accent 
-        text-dark
-        transition-all
-    }
-    .bg--headerlight{
-        @apply inline-block
-        py-[1rem]
-        px-[5rem]
-        md:py-[1.2rem]
-        md:px-[5rem]
-        rounded-full
-        border-transparent
-        border-[1px]
-        text-[1rem]
-        font-medium hover:scale-[0.9]
-        transition-all
-        bg-transparent
-        text-light
-        border-light
-        border-[1px]
+        hover:text-accent
+        hover:border-opacity-0
         hover:bg-light
-        hover:text-dark
-        transition-all
+        transition-all;
     }
-    .bg--headerdark{
-        @apply inline-block
-        py-[1rem]
-        px-[6rem]
-        md:py-[1.2rem]
-        md:px-[6rem]
-        rounded-full
-        border-transparent
-        border-[1px]
-        text-[1rem]
-        font-medium hover:scale-[0.9]
-        transition-all
-        bg-accent 
-        text-dark
-        hover:bg-light
-        transition-all
-    }
-    .btnn {
-        @apply block 
-        px-6 
-        py-2 
-        rounded-md
-        mx-auto
-        my-2
-        w-[200px]
-      }
-      .btnn.bg--whole{
-        @apply
-        bg-btnwhole
-        text-light
-        border-[1px]
-        hover:bg-hover
-        hover:text-dark
-      }
-      .btnn.bg--half{
-        @apply
-        bg-transparent
-        text-dark
-        border-btnwhole
-        border-[1px]
-        hover:bg-hover
-        hover:text-dark
-      }
 }

@@ -1,19 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./dist/**/*.{html,js}"],
   theme: {
     extend: {
+      keyframes: {
+        wave: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
+      animation: {
+        'wave': 'Gradient 15s ease forwards',
+      },
+      backgroundImage:{
+        Bgwave:"url(../dist/img/bg3.svg)",
+        Bgservices: "url(../dist/img/bgservices.jpg)",
+      },
       colors: {
         dark: "#626262",
         light: "#ffffff",
-        body: "#ffffff",
-        accent: "#39856c",
-        primary: "#1b3b1e",
-        footer: "#f2f2f2",
-        dropdown: "#2b2b2b",
-        btnwhole: "#28941e",
-        hover: "#daa625",
+        body: "ffffff",
+        section: "#f5f5f5",
+        primary: "#6a103f",
+        accent: "#6a103f",
       },
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        circle: 'circle',
+        square: 'square',
+        roman: 'upper-roman',
+      }
     },
   },
   plugins: [],
